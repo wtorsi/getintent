@@ -1,0 +1,40 @@
+
+.form-control {
+
+  //background: transparent;
+
+  textarea& {
+    min-height: 120px;
+    .resizable(vertical);
+  }
+}
+
+.form .form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-content .form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-header {
+  padding: @padding-large-vertical @padding-large-horizontal;
+  font-size: @font-size-h4;
+  background: @theme-bg-color;
+  border-bottom: 2px solid @theme-border-color;
+
+  .text-center();
+  .border-top-radius(@border-radius-large);
+  color: white;
+}
+
+.form-content {
+  padding: 2*@padding-large-vertical @padding-large-horizontal;
+  background: @theme-bg-inverse-color;
+}
+
+.form-footer {
+  padding: @padding-large-vertical @padding-large-horizontal;
+  background: white;
+  .border-bottom-radius(@border-radius-large);
+}

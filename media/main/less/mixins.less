@@ -1,0 +1,213 @@
+.background-cover() {
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.position(@top: 0px; @right:0px; @bottom: 0px; @left: 0px) {
+  top: @top;
+  right: @right;
+  bottom: @bottom;
+  left: @left;
+}
+
+.fixed(@top: 0px; @right:0px; @bottom: 0px; @left: 0px) {
+  .position(@top: @top; @right: @right; @bottom: @bottom; @left: @left);
+  position: fixed;
+
+}
+
+.absolute(@top: 0px; @right:0px; @bottom: 0px; @left: 0px) {
+  .position(@top: @top; @right: @right; @bottom: @bottom; @left: @left);
+  position: absolute;
+}
+
+.vertical-img-align(@vertical-align: middle, @align: center) {
+
+  font-size: 0;
+  line-height: 0;
+  text-align: @align;
+
+  &:before {
+    content: " ";
+    height: 100%;
+    display: inline-block;
+    vertical-align: @vertical-align;
+  }
+
+  img {
+    vertical-align: @vertical-align;
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    width: auto;
+  }
+
+}
+
+.border-radius( @radius: @border-radius-base ) {
+
+  -webkit-border-radius: @arguments;
+  -moz-border-radius: @arguments;
+  border-radius: @arguments;
+
+}
+
+.image-block(@height: 100%; @vertical-align: middle; @align: center) {
+
+  text-align: @align;
+  height: @height;
+  position: relative;
+  display: block;
+  overflow: hidden;
+
+  .vertical-img-align(@vertical-align: @vertical-align; @align: @align);
+
+  img {
+    .img-responsive(inline-block);
+
+  }
+
+  img + a {
+    .absolute();
+  }
+}
+
+.title(@color: @gray-light; @active-color: @brand-danger) {
+
+  color: @color;
+  text-decoration: underline;
+  font-weight: bold;
+  display: inline-block;
+
+  &:hover, &:active, &:focus {
+    color: @active-color;
+    text-decoration: none;
+  }
+
+  small {
+    display: block;
+  }
+}
+
+.btn-styles(@btn-color: #555, @border-color: darken(@btn-color, 5%)) {
+
+  .transition(@transition: all 0.2s);
+  #gradient > .vertical(@start-color: @btn-color;@end-color: darken(@btn-color, 5%));
+  .reset-filter();
+
+  background-repeat: repeat-x;
+  border-color: @border-color;
+
+  &:hover {
+    #gradient > .vertical(@start-color: darken(@btn-color,5%);@end-color: @btn-color);
+    border-color: darken(@btn-color, 14%);
+  }
+
+  &:focus,
+  &:active,
+  &.active {
+    #gradient > .vertical(@start-color: @btn-color;@end-color: darken(@btn-color, 2%));
+    border-color: darken(@btn-color, 7%);
+  }
+
+  &.disabled,
+  &:disabled,
+  &[disabled] {
+    background-color: darken(@btn-color, 12%);
+    background-image: none;
+  }
+
+  > i, > small {
+    .transition(all 0.2s);
+  }
+
+  .open > .dropdown-toggle&, &.collapsed {
+    > i {
+      .rotate(180deg)
+    }
+  }
+}
+
+.btn-iconable( @padding-vertical: @navbar-aside-padding-vertical, @padding-horizontal: @navbar-aside-padding-horizontal, @icon-width: @fa-width) {
+
+  display: block;
+  .text-left();
+
+  padding: @padding-vertical @icon-width @padding-vertical @padding-horizontal;
+  position: relative;
+
+  > i, > small {
+
+    position: absolute;
+    right: 0;
+
+    width: @icon-width;
+    height: @icon-width;
+
+    line-height: @icon-width;
+    margin-top: -@icon-width/2;
+
+    top: 50%;
+    text-align: center;
+  }
+
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.panel-variant(@border; @heading-text-color; @heading-bg-color; @heading-border) {
+
+  border-color: @border;
+
+  & > .panel-heading {
+    color: @heading-text-color;
+
+    #gradient > .vertical(@heading-bg-color, darken(@heading-bg-color, 10%));
+    .reset-filter();
+
+    background-color: @heading-bg-color;
+    border-color: @heading-border;
+
+    + .panel-collapse > .panel-body {
+      border-top-color: @border;
+    }
+    .badge {
+      color: @heading-bg-color;
+      background-color: @heading-text-color;
+    }
+  }
+
+  & > .panel-footer {
+    + .panel-collapse > .panel-body {
+      border-bottom-color: @border;
+    }
+  }
+}
+
+.label-variant(@color) {
+
+  #gradient > .vertical(@color, darken(@color, 14%));
+
+  border-color: darken(@color, 5%);
+  &[href] {
+    &:hover,
+    &:focus {
+      background-color: darken(@color, 10%);
+    }
+  }
+}
+
+

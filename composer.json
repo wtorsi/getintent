@@ -1,0 +1,13 @@
+{
+    "name": "wtorsi/getintent",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Andrey Lukin",
+            "email": "lukin.andrej@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6"
+    }
+}

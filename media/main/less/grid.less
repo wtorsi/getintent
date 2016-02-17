@@ -1,0 +1,20 @@
+
+.layout-container {
+
+  .container-fluid();
+
+
+  main.main {
+    margin-top: @grid-gutter-width/2;
+    .make-xs-column(12);
+
+  }
+
+  aside.aside {
+    .make-xs-column(2, 0);
+
+    + main.main{
+      .make-xs-column(10);
+    }
+  }
+}
